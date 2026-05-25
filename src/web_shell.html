@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SURGE — Chain the speed. Break the level.</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a0033;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  /* Synthwave grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(transparent 0%, #1a0033 60%),
+      repeating-linear-gradient(90deg, rgba(0,245,255,0.06) 0px, transparent 1px, transparent 60px, rgba(0,245,255,0.06) 61px),
+      repeating-linear-gradient(0deg,  rgba(0,245,255,0.06) 0px, transparent 1px, transparent 60px, rgba(0,245,255,0.06) 61px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.25em;
+    color: #00f5ff;
+    text-shadow: 0 0 12px #00f5ff, 0 0 32px #00f5ff88;
+    margin-bottom: 6px;
+    z-index: 1;
+  }
+  p.tagline {
+    font-size: 0.8rem;
+    color: #ff006e;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 8px #ff006e;
+    margin-bottom: 18px;
+    z-index: 1;
+  }
+  #canvas-container {
+    position: relative;
+    z-index: 1;
+    border: 2px solid #00f5ff44;
+    box-shadow: 0 0 40px #00f5ff33, inset 0 0 40px #00000066;
+  }
+  canvas {
+    display: block;
+    background: #000;
+  }
+  #status {
+    margin-top: 14px;
+    font-size: 0.75rem;
+    color: #ffffff88;
+    letter-spacing: 0.1em;
+    z-index: 1;
+  }
+  #loading-bar-wrap {
+    width: 400px;
+    height: 4px;
+    background: #ffffff18;
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  #loading-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff006e, #00f5ff);
+    transition: width 0.2s;
+    box-shadow: 0 0 8px #00f5ff;
+  }
+  p.controls {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    color: #ffffff55;
+    letter-spacing: 0.08em;
+    z-index: 1;
+  }
+  .key {
+    display: inline-block;
+    border: 1px solid #ffffff44;
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: #ffffffaa;
+    background: #ffffff11;
+  }
+</style>
+</head>
+<body>
+<h1>SURGE</h1>
+<p class="tagline">CHAIN THE SPEED &mdash; BREAK THE LEVEL</p>
+<div id="canvas-container">
+  <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+</div>
+<div id="loading-bar-wrap"><div id="loading-bar"></div></div>
+<p id="status">Loading...</p>
+<p class="controls">
+  <span class="key">← →</span> Move &nbsp;
+  <span class="key">Space</span> Jump &nbsp;
+  <span class="key">Shift</span> Dash &nbsp;
+  <span class="key">Esc</span> Pause &nbsp;
+  <span class="key">F11</span> Fullscreen
+</p>
+
+<script>
+  var Module = {
+    canvas: document.getElementById('canvas'),
+    setStatus: function(text) {
+      var el = document.getElementById('status');
+      var bar = document.getElementById('loading-bar');
+      if (text) {
+        var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+        if (m) {
+          bar.style.width = (parseInt(m[2]) / parseInt(m[4]) * 100) + '%';
+        }
+        el.textContent = text;
+      } else {
+        el.textContent = 'Ready — click to focus';
+        bar.style.width = '100%';
+      }
+    },
+    totalDependencies: 0,
+    monitorRunDependencies: function(left) {
+      this.totalDependencies = Math.max(this.totalDependencies, left);
+      Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : '');
+    },
+    onRuntimeInitialized: function() {
+      document.getElementById('status').textContent = 'Ready — click canvas to focus';
+    }
+  };
+  window.onerror = function(msg) {
+    document.getElementById('status').textContent = 'Error: ' + msg;
+  };
+</script>
+{{{ SCRIPT }}}
+</body>
+</html>

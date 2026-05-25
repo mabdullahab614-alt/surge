@@ -1,0 +1,76 @@
+name: Build & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 3.1.64
+
+      - name: Clone raylib 5.5
+        run: |
+          git clone --depth 1 --branch 5.5 https://github.com/raysan5/raylib.git raylib-src
+
+      - name: Build raylib for Web
+        run: |
+          mkdir -p raylib-src/build-web
+          cd raylib-src/build-web
+          emcmake cmake .. \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=OFF \
+            -DPLATFORM=Web \
+            -DGRAPHICS=GRAPHICS_API_OPENGL_ES2
+          emmake make -j$(nproc) raylib
+
+      - name: Build game for Web
+        run: |
+          mkdir -p build-web
+          emcmake cmake -B build-web \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DRAYLIB_INCLUDE="${GITHUB_WORKSPACE}/raylib-src/src" \
+            -DRAYLIB_LIB="${GITHUB_WORKSPACE}/raylib-src/build-web/raylib/libraylib.a"
+          emmake make -C build-web -j$(nproc)
+
+      - name: Prepare dist
+        run: |
+          mkdir -p dist
+          cp build-web/index.html dist/
+          cp build-web/index.js   dist/
+          cp build-web/index.wasm dist/
+          # .nojekyll so GitHub Pages serves .wasm correctly
+          touch dist/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
