@@ -1,6 +1,8 @@
 build/
 build-web/
+raylib/
 raylib-src/
+sfml/
 *.o
 *.obj
 *.exe
@@ -17,3 +19,5 @@ _test.i
 _test2.i
 build_output.txt
 *.bak
+records.txt
+settings.txt
