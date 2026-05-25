@@ -26,8 +26,29 @@
 
 ---
 
+## 🎬 Gameplay
+
+<div align="center">
+
+> 📹 **Gameplay GIF coming soon** — record yours with `Win + G` (Xbox Game Bar) and drop it here!
+
+<!-- Once you have a GIF, replace the block below with:
+![SURGE Gameplay](assets/gameplay.gif)
+-->
+
+| Chain x3 | Chain x10 | Boss Fight |
+|:---------:|:---------:|:----------:|
+| 🔵 Cyan particles + shake | 🌈 Rainbow trail + time-slow | 💥 Phase transitions + rage |
+
+[![▶ Play Now — see it live](https://img.shields.io/badge/▶%20Play%20Now%20—%20see%20it%20live-1a0033?style=for-the-badge&color=00f5ff)](https://mabdullahab614-alt.github.io/surge/)
+
+</div>
+
+---
+
 ## 📑 Table of Contents
 
+- [Gameplay](#-gameplay)
 - [Overview](#-overview)
 - [Live Demo](#-live-demo)
 - [Features](#-features)
