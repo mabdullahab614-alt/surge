@@ -30,11 +30,7 @@
 
 <div align="center">
 
-> 📹 **Gameplay GIF coming soon** — record yours with `Win + G` (Xbox Game Bar) and drop it here!
-
-<!-- Once you have a GIF, replace the block below with:
-![SURGE Gameplay](assets/gameplay.gif)
--->
+<video src="assets/gameplay.mp4" autoplay loop muted playsinline width="100%"></video>
 
 | Chain x3 | Chain x10 | Boss Fight |
 |:---------:|:---------:|:----------:|
