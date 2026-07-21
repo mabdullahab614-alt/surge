@@ -10,7 +10,7 @@
 [![Stars](https://img.shields.io/github/stars/mabdullahab614-alt/surge?style=for-the-badge&color=ff006e&labelColor=1a0033&logo=github)](https://github.com/mabdullahab614-alt/surge/stargazers)
 [![Forks](https://img.shields.io/github/forks/mabdullahab614-alt/surge?style=for-the-badge&color=00f5ff&labelColor=1a0033&logo=github)](https://github.com/mabdullahab614-alt/surge/forks)
 [![Issues](https://img.shields.io/github/issues/mabdullahab614-alt/surge?style=for-the-badge&color=ff2d2d&labelColor=1a0033)](https://github.com/mabdullahab614-alt/surge/issues)
-[![License](https://img.shields.io/github/license/mabdullahab614-alt/surge?style=for-the-badge&color=ff006e&labelColor=1a0033)](LICENSE)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-DC2626?style=for-the-badge&labelColor=1a0033)](#-license)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/mabdullahab614-alt/surge/deploy.yml?style=for-the-badge&label=CI%2FCD&labelColor=1a0033&color=00f5ff)](https://github.com/mabdullahab614-alt/surge/actions)
 
 <br/>
@@ -55,7 +55,6 @@
 - [Quick Start](#-quick-start)
 - [File Structure](#-file-structure)
 - [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
 - [License](#-license)
 - [Author](#-author)
 
@@ -283,15 +282,6 @@ emmake make -C build-web
 # Output: build-web/index.html — open in any browser
 ```
 
-### Deploy your own fork
-```bash
-git clone https://github.com/YOUR_USERNAME/surge.git
-
-# Enable GitHub Pages:
-# Settings → Pages → Source → GitHub Actions
-# Your live URL: https://YOUR_USERNAME.github.io/surge/
-```
-
 ---
 
 ## 📁 File Structure
@@ -339,26 +329,21 @@ surge/
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! The codebase is single-file-per-system and well-commented.
-
-1. Fork the project
-2. Create your branch: `git checkout -b feature/amazing-feature`
-3. Commit: `git commit -m 'feat: add amazing feature'`
-4. Push: `git push origin feature/amazing-feature`
-5. Open a [Pull Request](https://github.com/mabdullahab614-alt/surge/pulls)
-
----
-
 ## 📜 License
 
-Distributed under the **MIT License**.
+**All Rights Reserved © 2026 Abdullah Javid**
 
-```
-Copyright (c) 2026 Abdullah Javid
-Free to use, modify, and distribute with attribution.
-```
+This repository and its contents — including source code, game design, assets, and documentation — are made publicly visible **for portfolio and demonstration purposes only**.
+
+**No part of this repository may be copied, modified, distributed, sublicensed, or used** — in whole or in part, for personal, educational, or commercial purposes — without explicit prior written permission from the author.
+
+Forking or cloning this repository does **not** grant any rights to use, reproduce, or redistribute its contents.
+
+If you are interested in using any part of this project, please contact me directly for permission:
+
+📧 **Email:** mabdullah.ab614@gmail.com
+🔗 **GitHub:** [github.com/mabdullahab614-alt](https://github.com/mabdullahab614-alt)
+💼 **LinkedIn:** [linkedin.com/in/abdullah-javid-b217a2384](https://www.linkedin.com/in/abdullah-javid-b217a2384/)
 
 ---
 
@@ -371,7 +356,8 @@ Free to use, modify, and distribute with attribution.
 <br/>
 
 [![GitHub](https://img.shields.io/badge/GitHub-mabdullahab614--alt-00f5ff?style=for-the-badge&logo=github)](https://github.com/mabdullahab614-alt)
-[![Email](https://img.shields.io/badge/Email-asoftwarer4.5%40gmail.com-ff2d2d?style=for-the-badge&logo=gmail&logoColor=white)](mailto:asoftwarer4.5@gmail.com)
+[![Email](https://img.shields.io/badge/Email-mabdullah.ab614%40gmail.com-ff2d2d?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mabdullah.ab614@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Abdullah%20Javid-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdullah-javid-b217a2384/)
 
 *"Chain the speed. Break the level."*
 
